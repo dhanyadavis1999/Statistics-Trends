@@ -119,31 +119,31 @@ plt.legend(loc='center left', bbox_to_anchor=(1, 0.5))
 plt.savefig("greenhouse.png",bbox_inches="tight")
 plt.show()
 
-"""
-Created a function forest to manipulate the data using pandas dataframes which takes a csv file as argument, 
-reads a dataframe in Worldbank format which is Forest area (% of land area) and returns two dataframes: 
-one with years as columns and one with countries as columns.
-iloc:for selective columns in dataframe
-fillna(0):will replace Nan values with 0
-Transposed(T): is used to return transposed columns
-kind='bar': bar plot function in pandas
-bbox_to_anchor: to place leegend outside the box
-label:display labels
-savefig:saves image in the directory
-linestyle: we can display different types of line
-"""
 def forest(filename):
-      df_forest=pd.read_csv(filename,skiprows=(4))
-      a=df_forest['Country Name']
-      df_forest=df_forest.iloc[[20,25,30,40,45],[40,45,50,55,60]]
-      print(df_forest)
-      df_forest = df_forest.fillna(0)
-      print(df_forest)
-      df_forest.insert(loc=0,column='Country Name',value=a)
-      df_forest=df_forest.dropna(axis=1)
-      df_forestt=df_forest.set_index('Country Name').T
-      print(df_forest)
-      return df_forest,df_forestt
+    """
+    Created a function forest to manipulate the data using pandas dataframes which takes a csv file as argument, 
+    reads a dataframe in Worldbank format which is Forest area (% of land area) and returns two dataframes: 
+    one with years as columns and one with countries as columns.
+    iloc:for selective columns in dataframe
+    fillna(0):will replace Nan values with 0
+    Transposed(T): is used to return transposed columns
+    kind='bar': bar plot function in pandas
+    bbox_to_anchor: to place leegend outside the box
+    label:display labels
+    savefig:saves image in the directory
+    linestyle: we can display different types of line
+    """
+    df_forest=pd.read_csv(filename,skiprows=(4))
+    a=df_forest['Country Name']
+    df_forest=df_forest.iloc[[20,25,30,40,45],[40,45,50,55,60]]
+    print(df_forest)
+    df_forest = df_forest.fillna(0)
+    print(df_forest)
+    df_forest.insert(loc=0,column='Country Name',value=a)
+    df_forest=df_forest.dropna(axis=1)
+    df_forestt=df_forest.set_index('Country Name').T
+    print(df_forest)
+    return df_forest,df_forestt
 a,b=forest("C:/Users/sreel/OneDrive/Desktop/Dhanya/API_AG.LND.FRST.ZS_DS2_en_csv_v2_5358376.csv")
 print(a.describe())
 plt.figure(figsize=(10,7),dpi=150) 
@@ -158,8 +158,9 @@ plt.legend(loc='center left', bbox_to_anchor=(1, 0.5))
 plt.savefig("forest.png",bbox_inches="tight")
 plt.show()
 
-"""correlation plot for heatmap"""
+
 def heat_plot(file):
+    """correlation plot for heatmap"""
     df_stats = pd.read_csv(file,skiprows=(4))
     a=df_stats['Indicator Name']
     df_stats=df_stats.iloc[[3042,3044,3045,3079,3080],[40,45,50,55,60]]
