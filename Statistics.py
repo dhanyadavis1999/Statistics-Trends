@@ -62,7 +62,7 @@ def gdp(filename):
     """
     df_gdp=pd.read_csv(filename,skiprows=(4))
     a=df_gdp['Country Name']
-    df_gdp=df_gdp.iloc[[10,20,40,50,60],[54,55,56,57,58]]
+    df_gdp=df_gdp.iloc[[20,25,30,40,45],[40,45,50,55,60]]
     print(df_gdp)
     df_gdp = df_gdp.fillna(0)
     df_gdp.insert(loc=0,column='Country Name',value=a)
@@ -107,7 +107,7 @@ def greenhouse(filename):
      return df_greenhouse,df_greenhouset
 a,b=greenhouse("C:/Users/sreel/OneDrive/Desktop/Dhanya/API_EN.ATM.GHGT.KT.CE_DS2_en_csv_v2_5358514.csv")
 print(a.describe())
-plt.figure(figsize=(10,7),dpi=150) 
+plt.figure(figsize=(10,10),dpi=150) 
 a.plot(kind='bar',x='Country Name')
 font = {'family':'serif','color':'darkred','size':10}
 plt.xlabel("Countries",fontdict=(font))
