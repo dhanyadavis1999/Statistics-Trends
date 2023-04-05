@@ -119,7 +119,7 @@ plt.legend(loc='center left', bbox_to_anchor=(1, 0.5))
 plt.savefig("greenhouse.png",bbox_inches="tight")
 plt.show()
 
-def forest(filename):
+def forestarea(filename):
     """
     Created a function forest to manipulate the data using pandas dataframes which takes a csv file as argument, 
     reads a dataframe in Worldbank format which is Forest area (% of land area) and returns two dataframes: 
@@ -144,7 +144,7 @@ def forest(filename):
     df_forestt=df_forest.set_index('Country Name').T
     print(df_forest)
     return df_forest,df_forestt
-a,b=forest("C:/Users/sreel/OneDrive/Desktop/Dhanya/API_AG.LND.FRST.ZS_DS2_en_csv_v2_5358376.csv")
+a,b=forestarea("C:/Users/sreel/OneDrive/Desktop/Dhanya/API_AG.LND.FRST.ZS_DS2_en_csv_v2_5358376.csv")
 print(a.describe())
 plt.figure(figsize=(10,7),dpi=150) 
 a.plot(kind='bar',x='Country Name')
